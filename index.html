@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f1f5e9">
+  <title>사과게임</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="page-shell">
+    <header class="masthead">
+      <a class="brand" href="./" aria-label="사과게임 홈">
+        <span class="brand-mark" aria-hidden="true">🍎</span>
+        <span class="brand-name">사과게임</span>
+      </a>
+      <span class="edition">사과 수확 <span aria-hidden="true">·</span> 01:00</span>
+    </header>
+
+    <section class="game-layout" aria-labelledby="game-title">
+      <div class="game-column">
+        <div class="intro-row">
+          <div>
+            <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> ONE MINUTE CHALLENGE</p>
+            <h1 id="game-title">사과게임</h1>
+            <p class="intro-copy">이웃한 숫자를 이어 합을 10의 배수로 만들어 보세요.</p>
+          </div>
+          <div class="round-tag"><span class="round-tag-icon" aria-hidden="true">✳</span> 사과 수확</div>
+        </div>
+
+        <div class="board-shell">
+          <div class="board-topline">
+            <span class="board-label"><span class="board-label-dot" aria-hidden="true"></span> PLAYING FIELD</span>
+            <span class="board-size">8 <span>×</span> 8</span>
+          </div>
+          <div class="board-wrap">
+            <div id="game-board" class="game-board" role="grid" aria-label="숫자 게임 격자"></div>
+            <div id="end-overlay" class="end-overlay" hidden>
+              <div class="end-panel">
+                <span class="end-icon" aria-hidden="true">✳</span>
+                <p class="end-kicker">TIME'S UP</p>
+                <h2>한 판 끝!</h2>
+                <p class="end-score-line">이번 점수 <strong id="final-score">0</strong></p>
+                <button id="replay-button" class="primary-button" type="button">
+                  <span aria-hidden="true">↻</span> 다시 도전
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="board-footline">
+            <span id="game-message" class="game-message" aria-live="polite">시작 버튼을 누르면 1분이 시작돼요.</span>
+            <span class="selection-total">선택 합 <strong id="selection-sum">0</strong></span>
+          </div>
+        </div>
+      </div>
+
+      <aside class="score-column" aria-label="게임 기록 및 조작">
+        <div class="timer-panel">
+          <div class="timer-heading">
+            <span class="panel-label">남은 시간</span>
+            <span class="timer-status"><span class="status-dot" aria-hidden="true"></span><span id="timer-state">READY</span></span>
+          </div>
+          <p id="timer" class="timer-value" aria-live="off">01:00</p>
+          <div class="timer-track" role="progressbar" aria-label="남은 시간" aria-valuemin="0" aria-valuemax="60" aria-valuenow="60">
+            <span id="timer-progress"></span>
+          </div>
+        </div>
+
+        <div class="score-row">
+          <section class="score-panel current-score-panel" aria-label="현재 점수">
+            <span class="panel-label">현재 점수</span>
+            <strong id="score" class="score-value">0</strong>
+            <span class="score-caption">POINTS</span>
+          </section>
+          <section class="score-panel best-score-panel" aria-label="최고 점수">
+            <span class="panel-label">최고 기록</span>
+            <strong id="best-score" class="score-value">0</strong>
+            <span class="score-caption">BEST</span>
+          </section>
+        </div>
+
+        <button id="start-button" class="primary-button start-button" type="button">
+          <span aria-hidden="true">▶</span> 게임 시작
+        </button>
+
+        <div class="rule-note">
+          <span class="rule-symbol" aria-hidden="true">↗</span>
+          <p><strong>숫자를 이어 보세요</strong><br>가로·세로·대각선으로 연결할 수 있어요. 성공하면 숫자 합만큼 점수를 얻어요.</p>
+        </div>
+
+        <div class="score-column-footer">
+          <span>BEST SCORE</span>
+          <span>이 기기에 저장됩니다</span>
+        </div>
+      </aside>
+    </section>
+    <footer class="page-footer"><span>NUMBER GARDEN</span><span>천천히, 정확하게, 열까지.</span></footer>
+  </main>
+  <div id="confetti-layer" class="confetti-layer" aria-hidden="true"></div>
+</body>
+</html>
